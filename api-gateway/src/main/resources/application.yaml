@@ -5,6 +5,12 @@ spring:
   application:
     name: api-gateway
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jws-algorithm: HS512
+
   cloud:
     gateway:
       routes:
@@ -29,3 +35,6 @@ eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka
+
+jwt:
+  secret: lPWJKrXiEXrcS_QHP6HUy0Lb3UUFsWVReyI5JqhXK52wzi6t33zB6a4RgAncJb4EFmrrj4x6Rn0NaW084DU2PQ

@@ -8,7 +8,7 @@ import com.nimbusds.jwt.SignedJWT;
 import java.text.ParseException;
 
 public interface IJwtService {
-    String generateToken(User user, long expiration, String tokenType);
+    JwtService.TokenPair generateTokenPair(User user);
     SignedJWT verifyToken(String token, String type) throws JOSEException, ParseException;
     JwtService.TokenPair refreshToken(String token) throws ParseException, JOSEException;
     void invalidatedToken(SignedJWT signedJWT) throws ParseException;

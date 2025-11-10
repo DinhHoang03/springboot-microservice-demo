@@ -47,8 +47,7 @@ public class JwtService implements IJwtService {
     }
 
 
-    @Override
-    public String generateToken(User user, long expiration, String tokenType) {
+    private String generateToken(User user, long expiration, String tokenType) {
         //Create header for JWT Token
         JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
 
@@ -165,7 +164,8 @@ public class JwtService implements IJwtService {
         return stringJoiner.toString();
     }
 
-    private TokenPair generateTokenPair(User user) {
+    @Override
+    public TokenPair generateTokenPair(User user) {
         String accessToken = generateAccessToken(user);
         String refreshToken = generateRefreshToken(user);
 

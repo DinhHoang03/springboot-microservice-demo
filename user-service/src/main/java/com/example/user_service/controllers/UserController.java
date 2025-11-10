@@ -23,6 +23,7 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
+        userService.deleteAccount(id);
         return ResponseEntity.ok("Delete user successfully");
     }
 }
